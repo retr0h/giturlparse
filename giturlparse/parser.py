@@ -63,7 +63,7 @@ class Parser(object):
             'pathname': None,
             'protocols': self._get_protocols(),
             'protocol': 'ssh',
-            'href': self._url,
+            'href': self._url.split("#")[0],
             'resource': None,
             'user': None,
             'port': None,

@@ -130,7 +130,7 @@ def git_urls():
             'pathname': 'owner/repo.git',
             'protocols': [],
             'protocol': 'ssh',
-            'href': 'user@example.com:owner/repo.git#blort',
+            'href': 'user@example.com:owner/repo.git',
             'resource': 'example.com',
             'user': 'user',
             'port': None,
