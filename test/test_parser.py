@@ -39,6 +39,7 @@ def test_parse(git_urls):
         assert d['port'] == result.port
         assert d['name'] == result.name
         assert d['owner'] == result.owner
+        assert d['ref'] == result.ref
 
 
 def test_parse_raises_on_invalid_url(invalid_urls):

@@ -37,6 +37,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'ssh://user@example.com:29418/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -48,6 +49,7 @@ def git_urls():
             'port': '29418',
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'ssh://example.com/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -59,6 +61,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'ssh://example.com:29418/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -70,6 +73,7 @@ def git_urls():
             'port': '29418',
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'user@example.com:/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -81,6 +85,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'example.com:/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -92,6 +97,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'user@example.com:owner/repo.git': {
             'pathname': 'owner/repo.git',
@@ -103,6 +109,34 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
+        },
+        # gitlab and github allow omitting the .git
+        'user@example.com:owner/repo': {
+            'pathname': 'owner/repo',
+            'protocols': [],
+            'protocol': 'ssh',
+            'href': 'user@example.com:owner/repo',
+            'resource': 'example.com',
+            'user': 'user',
+            'port': None,
+            'name': 'repo',
+            'owner': 'owner',
+            'ref': None,
+        },
+        # npm and others allow specifying a branch or commit.  See
+        # https://docs.npmjs.com/files/package.json#git-urls-as-dependencies
+        'user@example.com:owner/repo.git#blort': {
+            'pathname': 'owner/repo.git',
+            'protocols': [],
+            'protocol': 'ssh',
+            'href': 'user@example.com:owner/repo.git',
+            'resource': 'example.com',
+            'user': 'user',
+            'port': None,
+            'name': 'repo',
+            'owner': 'owner',
+            'ref': 'blort',
         },
         'user@foo-example.com:owner/repo.git': {
             'pathname': 'owner/repo.git',
@@ -114,6 +148,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'example.com:owner/repo.git': {
             'pathname': 'owner/repo.git',
@@ -125,6 +160,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'rsync://example.com/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -136,6 +172,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'git://example.com/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -147,6 +184,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'http://example.com/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -158,6 +196,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'https://example.com/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -169,6 +208,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'https://example.com/owner/repo': {
             'pathname': '/owner/repo',
@@ -180,6 +220,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'example.com:repo.git': {
             'pathname': 'repo.git',
@@ -191,6 +232,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': None,
+            'ref': None,
         },
         'https://example.com/repo': {
             'pathname': '/repo',
@@ -202,6 +244,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': None,
+            'ref': None,
         },
         'https://example.in/repo': {
             'pathname': '/repo',
@@ -213,6 +256,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': None,
+            'ref': None,
         },
         'user@example.com:repo.git': {
             'pathname': 'repo.git',
@@ -224,6 +268,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': None,
+            'ref': None,
         },
         'git+ssh://example.com/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -235,6 +280,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'git+https://example.com/owner/repo.git': {
             'pathname': '/owner/repo.git',
@@ -246,6 +292,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'owner',
+            'ref': None,
         },
         'https://user@example.org/user/repo': {
             'pathname': '/user/repo',
@@ -257,6 +304,7 @@ def git_urls():
             'port': None,
             'name': 'repo',
             'owner': 'user',
+            'ref': None,
         },
     }
 
