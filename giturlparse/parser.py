@@ -48,6 +48,7 @@ class Parser(object):
             'port',
             'name',
             'owner',
+            'ref',
         ])
 
     def parse(self):
@@ -68,6 +69,7 @@ class Parser(object):
             'port': None,
             'name': None,
             'owner': None,
+            'ref': None,
         }
         regexes = [
             (r'^(?P<protocol>https?|git|ssh|rsync)\://'
@@ -75,27 +77,31 @@ class Parser(object):
              '(?P<resource>[a-z0-9_.-]*)'
              '[:/]*'
              '(?P<port>[\d]+){0,1}'
-             '(?P<pathname>\/(?P<owner>.+)/(?P<name>.+).git)'),
+             '(?P<pathname>\/(?P<owner>.+)/(?P<name>.+).git)'
+             '(#(?P<ref>.+)){0,1}$'),
             (r'(git\+)?'
              '((?P<protocol>\w+)://)'
              '((?P<user>\w+)@)?'
              '((?P<resource>[\w\.\-]+))'
              '(:(?P<port>\d+))?'
              '(?P<pathname>(\/(?P<owner>\w+)/)?'
-             '(\/?(?P<name>[\w\-]+)(\.git)?)?)'),
+             '(\/?(?P<name>[\w\-]+)(\.git)?)?)'
+             '(#(?P<ref>.+)){0,1}$'),
             (r'^(?:(?P<user>.+)@)*'
              '(?P<resource>[a-z0-9_.-]*)[:/]*'
              '(?P<port>[\d]+){0,1}'
-             '[:](?P<pathname>\/?(?P<owner>.+)/(?P<name>.+).git)'),
+             '[:](?P<pathname>\/?(?P<owner>.+)/(?P<name>.+).git)'
+             '(#(?P<ref>.+)){0,1}$'),
             (r'((?P<user>\w+)@)?'
              '((?P<resource>[\w\.\-]+))'
              '[\:\/]{1,2}'
              '(?P<pathname>((?P<owner>\w+)/)?'
-             '((?P<name>[\w\-]+)(\.git)?)?)'),
+             '((?P<name>[\w\-]+)(\.git)?)?)'
+             '(#(?P<ref>.+)){0,1}$'),
         ]
         for regex in regexes:
-            if re.search(regex, self._url):
-                m = re.search(regex, self._url)
+            m = re.search(regex, self._url)
+            if m:
                 d.update(m.groupdict())
                 break
         else:
