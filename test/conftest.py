@@ -260,6 +260,17 @@ def first_match_urls():
             'name': 'Stouts.openvpn',
             'owner': 'tterranigma',
         },
+        'https://gitlab.com/Group/Owner/Stouts.openvpn.git': {
+            'pathname': '/Group/Owner/Stouts.openvpn.git',
+            'protocols': ['https'],
+            'protocol': 'https',
+            'href': 'https://gitlab.com/Group/Owner/Stouts.openvpn.git',
+            'resource': 'gitlab.com',
+            'user': None,
+            'port': None,
+            'name': 'Stouts.openvpn',
+            'owner': 'Group/Owner'
+        }
     }
 
 
