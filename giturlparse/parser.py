@@ -43,6 +43,13 @@ POSSIBLE_REGEXES = (
                r'(?P<port>[\d]+){0,1}'
                r'(?P<pathname>\/((?P<owner>[\w\-]+)\/)?'
                r'((?P<name>[\w\-\.]+?)(\.git|\/)?)?)$'),
+    re.compile(r'^(?P<protocol>https?|git|ssh|rsync)\://'
+               r'(?:(?P<user>.+)@)*'
+               r'(?P<resource>[a-z0-9_.-]*)'
+               r'[:/]*'
+               r'(?P<port>[\d]+){0,1}'
+               r'(?P<pathname>\/((?P<owner>[\w\-\/]+)\/)?'
+               r'((?P<name>[\w\-\.]+?)(\.git)?)?)$'),
     re.compile(r'(git\+)?'
                r'((?P<protocol>\w+)://)'
                r'((?P<user>\w+)@)?'
