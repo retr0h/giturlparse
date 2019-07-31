@@ -36,7 +36,7 @@ Parsed = collections.namedtuple('Parsed', [
 ])
 
 POSSIBLE_REGEXES = (
-    re.compile(r'^(?P<protocol>https?|git|ssh|rsync)\://'
+    re.compile(r'^((?P<protocol>https?|git|ssh|rsync)\+*)+\://'
                r'(?:(?P<user>.+)@)*'
                r'(?P<resource>[a-z0-9_.-]*)'
                r'[:/]*'
