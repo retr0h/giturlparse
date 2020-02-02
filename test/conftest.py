@@ -315,6 +315,18 @@ def first_match_urls():
             'name': 'Stouts.openvpn',
             'owner': 'tterranigma',
         },
+        'ssh://someserver.com/tfs/SomeWhere/My.Project/_git/somerepo': {
+            'pathname': '/tfs/SomeWhere/My.Project/_git/somerepo',
+            'protocols': ['ssh'],
+            'protocol': 'ssh',
+            'href':
+            'ssh://someserver.com/tfs/SomeWhere/My.Project/_git/somerepo',
+            'resource': 'someserver.com',
+            'user': None,
+            'port': None,
+            'name': 'somerepo',
+            'owner': 'tfs/SomeWhere/My.Project/_git',
+        },
     }
 
 
